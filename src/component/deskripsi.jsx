@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { newsItems } from './dashboard'
 
 function ArrowBackIcon() {
     return (
@@ -144,7 +143,7 @@ function getArticleDetails(news) {
     }
 }
 
-function Deskripsi({ news, onBack, onSelectNews }) {
+function Deskripsi({ news, onBack, onSelectNews, allNews = [] }) {
     const [scrollProgress, setScrollProgress] = useState(0)
     const [fontSize, setFontSize] = useState('normal') // 'normal' | 'large' | 'xlarge'
     const [likes, setLikes] = useState(128 + news.id * 17)
@@ -206,10 +205,10 @@ function Deskripsi({ news, onBack, onSelectNews }) {
     }, [toast])
 
     // Navigation items
-    const popularNews = newsItems.filter((item) => item.id !== news.id).slice(0, 3)
-    const currentIndex = newsItems.findIndex((item) => item.id === news.id)
-    const prevArticle = currentIndex > 0 ? newsItems[currentIndex - 1] : null
-    const nextArticle = currentIndex < newsItems.length - 1 ? newsItems[currentIndex + 1] : null
+    const popularNews = allNews.filter((item) => item.id !== news.id).slice(0, 3)
+    const currentIndex = allNews.findIndex((item) => item.id === news.id)
+    const prevArticle = currentIndex > 0 ? allNews[currentIndex - 1] : null
+    const nextArticle = currentIndex < allNews.length - 1 ? allNews[currentIndex + 1] : null
 
     const details = getArticleDetails(news)
 
