@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
 
 :root {
@@ -3049,3 +3050,65 @@ h3 {
     justify-content: center;
   }
 }
+
+/* ─── API Status & Loading Indicators ──────────────────────────────────────── */
+
+.api-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin: 14px 0 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+}
+
+.api-status-bar.live {
+  background: rgba(29, 83, 80, 0.08);
+  border: 1px solid rgba(29, 83, 80, 0.18);
+  color: var(--teal);
+}
+
+.api-status-bar.fallback {
+  background: rgba(239, 99, 63, 0.06);
+  border: 1px solid rgba(239, 99, 63, 0.2);
+  color: var(--muted);
+}
+
+.api-status-bar code {
+  background: rgba(0,0,0,0.07);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+}
+
+.live-dot-small {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: inline-block;
+  animation: pulseLiveDot 1.6s infinite;
+  flex-shrink: 0;
+}
+
+.api-error-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(239, 99, 63, 0.06);
+  border: 1px solid rgba(239, 99, 63, 0.2);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.api-error-notice em {
+  color: var(--orange);
+  font-style: normal;
+}
+
